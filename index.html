@@ -1,0 +1,50 @@
+<?xml version = "1.0"  encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<!-- e4_14.html - 4.14
+-->
+<html lang = "en">
+    <head>
+        <title> Exercise 4.14 </title>
+        <meta charset = "utf-8" />
+        <script type = "text/javascript">
+  
+            var result;
+
+            // Function reverser
+            // Parameter: a number
+            // Returns: the number with its digits in reverse order
+            // Note: Math.floor must be used to get the integer part
+            //       of the division operations
+
+            function reverser(num) {
+                var digit;
+ 
+                // If the number has just one digit, that's it
+                if (num < 10)
+                    return num;
+
+                // Get the first digit
+                result = num % 10;
+                num = Math.floor(num / 10);
+ 
+                // Loop to produce the result for the rest
+                do {
+                    digit = num % 10;
+                    result = 10 * result + digit;
+                    num = Math.floor(num / 10);
+                } while (num >= 1);
+                return result;
+            }
+        </script>
+    </head>
+    
+    <body style="font-family:Verdana;">
+        <script type = "text/javascript">
+            var num1 = prompt("Please enter a number to be reversed: ", "####");
+            result = reverser(num1);
+            document.write("The reverse of the number "+ num1 ," is: " + result + "<br />");
+        </script>
+    </body>
+</html>
